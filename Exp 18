@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int queue[5] = {40, 10, 50, 90, 30};
+    int head = 35, size = 200;
+    int total = 0, i;
+
+    for (i = 0; i < 5; i++) {
+        total += abs(queue[i] - head);
+        head = queue[i];
+    }
+
+    total += abs(size - head);
+
+    printf("Total head movement = %d\n", total);
+    return 0;
+}
