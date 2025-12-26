@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <sys/stat.h>
+
+int main() {
+    struct stat st;
+
+    stat("test.txt", &st);
+
+    printf("User permissions: ");
+    printf((st.st_mode & S_IRUSR) ? "r" : "-");
+    printf((st.st_mode & S_IWUSR) ? "w" : "-");
+    printf((st.st_mode & S_IXUSR) ? "x\n" : "-\n");
+
+    printf("Group permissions: ");
+    printf((st.st_mode & S_IRGRP) ? "r" : "-");
+    printf((st.st_mode & S_IWGRP) ? "w" : "-");
+    printf((st.st_mode & S_IXGRP) ? "x\n" : "-\n");
+
+    printf("Others permissions: ");
+    printf((st.st_mode & S_IROTH) ? "r" : "-");
+    printf((st.st_mode & S_IWOTH) ? "w" : "-");
+    printf((st.st_mode & S_IXOTH) ? "x\n" : "-\n");
+
+    return 0;
+}
